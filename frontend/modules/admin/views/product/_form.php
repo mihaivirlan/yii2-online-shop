@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\components\MenuWidget;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\admin\models\Product */
@@ -21,8 +22,14 @@ use frontend\components\MenuWidget;
     </div>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
+    <?php
+        echo $form->field($post, 'content')->widget(CKEditor::class,[
+            'editorOptions' => [
+                'preset' => 'full',
+                'inline' => false,
+            ],
+        ]);
+    ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -32,11 +39,12 @@ use frontend\components\MenuWidget;
 
     <?= $form->field($model, 'img')->textInput() ?>
 
-    <?= $form->field($model, 'hit')->textInput() ?>
+    <?= $form->field($model, 'hit')->checkbox(['0', '1',]) ?>
 
-    <?= $form->field($model, 'new')->textInput() ?>
+    <?= $form->field($model, 'new')->checkbox(['0', '1',]) ?>
 
-    <?= $form->field($model, 'sale')->textInput() ?>
+    <?= $form->field($model, 'sale')->checkbox(['0', '1',]) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
