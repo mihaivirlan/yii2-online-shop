@@ -33,19 +33,14 @@ class LoginForm extends Model{
     }
 
 
-//    public function validatePassword($attribute){
-//        if (!$this->hasErrors()) {
-//            $user = $this->getUser();
-//            if (!$user || !$user->validatePassword($this->password)) {
-//                $this->addError($attribute, 'Incorrect username or password.');
-//            }
-//        }
-//    }
-
-    public function validatePassword($password){
-        return $this->password === Yii::$app->security->generatePasswordHash ($password);
+    public function validatePassword($attribute, $params){
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if (!$user || !$user->validatePassword($this->password)) {
+                $this->addError($attribute, 'Incorrect username or password.');
+            }
+        }
     }
-
 
     public function login(){
         if ($this->validate()) {

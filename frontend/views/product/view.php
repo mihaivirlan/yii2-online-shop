@@ -75,7 +75,7 @@ use yii\helpers\Html;
 									<span>US $<?= $product->price ?></span>
 									<label>Quantity:</label>
 									<input type="text" value="1" id="qty">
-									<a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="btn btn-fefault add-to-cart2 cart">
+									<a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="btn btn-fefault add-to-cart cart">
 <!--                                        add-to-cart2 - adaugarea produselor neasincron-->
 <!--                                        add-to-cart - adaugarea produselor asincron-->
 										<i class="fa fa-shopping-cart"></i>

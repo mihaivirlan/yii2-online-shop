@@ -9,8 +9,8 @@
 namespace frontend\controllers;
 use frontend\models\Product;
 use frontend\models\Cart;
-use app\models\Order;
-use app\models\OrderItems;
+use frontend\models\Order;
+use frontend\models\OrderItems;
 use Yii;
 
 

@@ -1,8 +1,7 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 use yii\db\ActiveRecord;
-use Yii;
 
 class OrderItems extends ActiveRecord {
 

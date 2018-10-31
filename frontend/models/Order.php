@@ -1,9 +1,8 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
-use Yii;
 use yii\db\Expression;
 
 class Order extends ActiveRecord{

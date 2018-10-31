@@ -2,7 +2,7 @@
 
  $('#sl2').slider();
 
- 	$('.catalog').dcAccordion();
+ 	$('.catalog').accordion();
  	
  	function showCart(cart) {
 		$('#cart .modal-body').html(cart);
@@ -24,7 +24,7 @@
 		return false;
     }
 
-    $('#cart .modal-body').on('click', '.delete-item', function () {
+    $('#cart .modal-body').on('click', '.del-item', function () {
 		var id = $(this).data('id');
         $.ajax({
             url: '/cart/del-item',

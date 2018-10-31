@@ -18,15 +18,15 @@
                         <td><?= $item['name'] ?></td>
                         <td><?= $item['qty'] ?></td>
                         <td><?= $item['price'] ?></td>
-                        <td><span data-id="<?= $id ?>" class="glyphicon glyphicon-remove text-danger delete-item" aria-hidden="true"></span></td>
+                        <td><span data-id="<?= $id ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
                     </tr>
                 <?php endforeach; ?>
                     <tr>
-                        <td colspan="5">Total: </td>
+                        <td colspan="4">Total: </td>
                         <td><?= $session['cart.qty'] ?></td>
                     </tr>
                     <tr>
-                        <td colspan="5">Count: </td>
+                        <td colspan="4">Count: </td>
                         <td><?= $session['cart.sum'] ?></td>
                     </tr>
             </tbody>

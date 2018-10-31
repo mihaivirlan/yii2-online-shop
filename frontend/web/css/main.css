@@ -802,7 +802,7 @@ ul.category-products{
   position: relative;
 }
 
-.delete-item {
+.del-item {
   cursor: pointer;
 }
 
