@@ -29,16 +29,41 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'category_id',
+            //'category_id',
+            [
+                'attribute' => 'category_id',
+                'value' => $model->category->name ? $model->category->name : 'Independent Category'
+            ],
             'name',
             'content:html',
             'price',
             'keywords',
             'description',
             'img',
-            'hit',
-            'new',
-            'sale',
+            [
+                'attribute' => 'hit',
+                'value' => function($data) {
+                    return !$data->hit ? '<span class="text-danger">No</span>' : '<span class="text-success">Yes</span>';
+                },
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'new',
+                'value' => function($data) {
+                    return !$data->new ? '<span class="text-danger">No</span>' : '<span class="text-success">Yes</span>';
+                },
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'sale',
+                'value' => function($data) {
+                    return !$data->sale ? '<span class="text-danger">No</span>' : '<span class="text-success">Yes</span>';
+                },
+                'format' => 'html',
+            ],
+            //'hit',
+            //'new',
+            //'sale',
         ],
     ]) ?>
 

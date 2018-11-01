@@ -85,6 +85,7 @@ use yii\helpers\Html;
                             <p><b>Availability:</b> In Stock</p>
                             <p><b>Condition:</b> New</p>
                             <p><b>Brand: </b><a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $product->category->id]) ?>"><?= $product->category->name ?></a></p>
+                            <?= $product->content ?>
                         </div><!--/product-information-->
                     </div>
                 </div><!--/product-details-->

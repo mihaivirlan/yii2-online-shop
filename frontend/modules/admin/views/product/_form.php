@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\components\MenuWidget;
 use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
+mihaildev\elfinder\Assets::noConflict($this);
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\admin\models\Product */
@@ -14,7 +16,7 @@ use mihaildev\ckeditor\CKEditor;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <div class="form-group field-product-category_id required has-success">
+    <div class="form-group field-product-category_id has-success">
         <label class="control-label" for="product-category_id">Parent Category</label>
         <select id="product-category_id" class="form-control" name="Product[category_id]">
             <?= MenuWidget::widget(['tpl' => 'select_product', 'model' => $model]) ?>
@@ -23,12 +25,15 @@ use mihaildev\ckeditor\CKEditor;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     <?php
-        echo $form->field($post, 'content')->widget(CKEditor::class,[
-            'editorOptions' => [
-                'preset' => 'full',
-                'inline' => false,
-            ],
-        ]);
+//        echo $form->field($model, 'content')->widget(CKEditor::class,[
+//            'editorOptions' => [
+//                'preset' => 'full',
+//                'inline' => false,
+//            ],
+//        ]);
+    echo $form->field($model, 'content')->widget(CKEditor::className(), [
+  'editorOptions' => ElFinder::ckeditorOptions('elfinder',[]),
+]);
     ?>
 
     <?= $form->field($model, 'price')->textInput() ?>

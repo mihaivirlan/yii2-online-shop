@@ -33,7 +33,7 @@ class ContactForm extends ActiveRecord {
             'name' => 'Name',
             'email' => 'Email',
             'subject' => 'Subject',
-            'body' => 'Body',
+            'body' => 'Your advice',
         ];
     }
 
