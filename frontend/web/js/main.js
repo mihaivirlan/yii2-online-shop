@@ -1,9 +1,13 @@
 /*price range*/
 
- $('#sl2').slider();
 
- 	$('.catalog').accordion();
- 	
+ 	$(document).ready(function () {
+        $('nav ul li a').click(function () {
+            $('ul li a').removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+
  	function showCart(cart) {
 		$('#cart .modal-body').html(cart);
 		$('#cart').modal();

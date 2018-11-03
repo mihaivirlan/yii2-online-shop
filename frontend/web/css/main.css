@@ -2456,6 +2456,10 @@ h2.title {
   color: #8D8D8D;
 }
 
+.shop-menu ul li a.active {
+  background-color: #ff0000;
+}
+
 #contact-page .form-control {
   background-color: #fff;
   border: 1px solid #ddd;

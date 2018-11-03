@@ -46,7 +46,7 @@ use yii\helpers\Html;
 
                                 <?php if ($product->new): ?>
                                     <?= Html::img("@web/images/home/new.png", ['alt' => 'New', 'class' => 'new'])?>
-<!--                                    <img src="data:image/jpeg;base64,--><?//= base64_encode($product->img) ?><!--" />-->
+                                    <img src="data:image/jpeg;base64,<?= base64_encode($product->img) ?>" />
                                 <?php endif; ?>
 
                                 <?php if ($product->sale): ?>

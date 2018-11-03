@@ -10,6 +10,16 @@ class User extends ActiveRecord implements IdentityInterface{
         return 'user';
     }
 
+    public function rules(){
+        return [
+
+            [['username', 'password',], 'required'],
+
+            ['username', 'unique', 'targetClass' => '\frontend\models\User', 'message' => 'This username has already been taken'],
+
+        ];
+    }
+
     public static function findIdentity($id){
         return static::findOne($id);
     }
@@ -34,11 +44,18 @@ class User extends ActiveRecord implements IdentityInterface{
         return $this->auth_key === $authKey;
     }
 
-    public function validatePassword($password){
-        return Yii::$app->security->validatePassword($password, $this->password);
+    public function validatePassword($password)
+    {
+        return $this->password === Yii::$app->security->generatePasswordHash ($password);
     }
 
     public function generateAuthKey() {
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
+
+    public function setPassword($password){
+        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+
+    }
+
 }

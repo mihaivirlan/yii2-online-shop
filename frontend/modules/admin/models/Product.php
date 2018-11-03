@@ -21,6 +21,18 @@ use Yii;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public $image;
+    public $gallery;
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -44,6 +56,8 @@ class Product extends \yii\db\ActiveRecord
             [['price'], 'number'],
             [['img'], 'string'],
             [['name', 'content', 'keywords', 'description'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'png, jpg'],
+            [['gallery'], 'file', 'extensions' => 'png, jpg', 'maxFiles' => 4],
         ];
     }
 
@@ -60,10 +74,37 @@ class Product extends \yii\db\ActiveRecord
             'price' => 'Price',
             'keywords' => 'Keywords',
             'description' => 'Description',
-            'img' => 'Img',
+            'image' => 'Image',
+            'gallery' => 'Gallery',
             'hit' => 'Hit',
             'new' => 'New',
             'sale' => 'Sale',
         ];
+    }
+
+    public function upload() {
+        if ($this->validate()) {
+            $path = 'upload/store/' . $this->image->baseName . '.' . $this->image->extension;
+            $this->image->saveAs($path);
+            $this->attachImage($path, true);
+            @unlink($path);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function uploadGallery() {
+        if ($this->validate()) {
+            foreach ($this->gallery as $file) {
+                $path = 'upload/store/' . $file->baseName . '.' . $file->extension;
+                $file->saveAs($path);
+                $this->attachImage($path);
+                @unlink($path);
+            }
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -92,17 +92,34 @@ ltAppAsset::register($this);
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
+                            <nav>
 							<ul class="nav navbar-nav">
                                 <?php if (!Yii::$app->user->isGuest): ?>
                                     <li>
                                         <a href="<?= Url::to(['/site/logout']) ?>">
                                             <i class="fa fa-user"></i><?= Yii::$app->user->identity['username'] ?>(Logout)
+                                    <li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                                         </a>
                                     </li>
                                 <?php endif; ?>
-								<li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-lock"></i> Login</a></li>
+
+                                <?php if (Yii::$app->user->isGuest): ?>
+								    <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <?php endif; ?>
+
+                                <?php if (Yii::$app->user->isGuest): ?>
+                                    <li><a href="<?= Url::to(['site/register']) ?>"><i class="fa fa-sign-in"></i> Signin</a></li>
+                                <?php endif; ?>
+                                <?php if (Yii::$app->user->isGuest): ?>
+                                    <li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-lock"></i>Login</a></li>
+                                <?php endif; ?>
+
+                                <?php if (Yii::$app->user->isGuest): ?>
+                                    <li><a href="<?= Url::to(['site/contact']) ?>"><i class="fa fa-envelope"></i>Contact</a></li>
+                                <?php endif; ?>
+
 							</ul>
+                            </nav>
 						</div>
 					</div>
 				</div>
@@ -123,15 +140,18 @@ ltAppAsset::register($this);
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-<!--								<li><a href="index.html" class="active">Home</a></li>-->
-                                <li><a class="active" href="<?= Url::home() ?>">Home</a></li>
+                                <li><a href="<?= Url::home() ?>">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
 										<li><a href="#" onclick="return getCart()">Cart</a></li>
-										<li><a href="<?= Url::to(['/admin']) ?>">Login</a></li>
+                                        <?php if (Yii::$app->user->isGuest): ?>
+										    <li><a href="<?= Url::to(['/admin']) ?>">Login</a></li>
+                                        <?php endif; ?>
                                     </ul>
                                 </li>
-								<li><a href="<?= Url::to(['site/contact']) ?>">Contact</a></li>
+                                <?php if (Yii::$app->user->isGuest): ?>
+								    <li><a class="menu-item" href="<?= Url::to(['site/contact']) ?>">Contact</a></li>
+                                <?php endif; ?>
 							</ul>
 						</div>
 					</div>

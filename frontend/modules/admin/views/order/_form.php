@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\admin\models\Order */
@@ -12,9 +13,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?= $form->field($model, 'created_at')->widget(DatePicker::class, [
+        'value' => date('Y-m-d'),
+    ]) ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->widget(DatePicker::class, [
+        'value' => date('Y-m-d'),
+    ]) ?>
 
     <?= $form->field($model, 'qty')->textInput() ?>
 

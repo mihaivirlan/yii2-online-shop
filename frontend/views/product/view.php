@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
+Url::base();
+Url::base(true);
+Url::base('https');
+Url::base('http');
+Url::base('');
 //$this->title = 'My Yii Application';
 ?>
 <section>
@@ -17,34 +23,36 @@ use yii\helpers\Html;
                 </div>
             </div>
 
+            <?php
+                $mainImg = $product->getImage();
+                $gallery = $product->getImages();
+            ?>
+
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product">
-<!--                            --><?//= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name])?>
-                            <img src="data:image/jpeg;base64,<?= base64_encode($product->img) ?>" />
+<!--                            --><?//= Html::img($mainImg->getUrl(), ['alt' => $product->name])?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($mainImg->getUrl()) ?>" />
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
-                                <div class="item active">
-                                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar3.jpg" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar3.jpg" alt=""></a>
-                                </div>
-                                <div class="item">
-                                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar3.jpg" alt=""></a>
-                                </div>
+                                <?php $count = count($gallery); $i = 0; foreach ($gallery as $img): ?>
 
+                                    <?php if ($i % 3 == 0): ?>
+                                        <div class="item <?php if ($i == 0) echo ' active'?>">
+                                    <?php endif; ?>
+
+                                            <a href=""><img src="data:image/jpeg;base64,<?= base64_encode($img->getUrl('84x85')) ?>" /></a>
+
+                                    <?php $i++; if ($i % 3 == 0 || $i == $count):?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
                             </div>
 
                             <!-- Controls -->

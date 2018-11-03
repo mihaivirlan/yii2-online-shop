@@ -11,6 +11,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\assets\ltAppAsset;
 use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -69,7 +70,7 @@ ltAppAsset::register($this);
                         <div class="logo pull-left">
                             <a href="<?= \yii\helpers\Url::home() ?>"><?= Html::img('@web/images/home/logo.png', ['alt']) ?></a>
                         </div>
-                        <!--                        <img src="/images/home/logo.png" alt="" />-->
+
                         <div class="btn-group pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
@@ -104,9 +105,8 @@ ltAppAsset::register($this);
                                         </a>
                                     </li>
                                 <?php endif; ?>
-                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="<?= \yii\helpers\Url::to(['/admin']) ?>"><i class="fa fa-lock"></i> Login</a></li>
+<!--                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>-->
+                                <li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                             </ul>
                         </div>
                     </div>
@@ -129,7 +129,7 @@ ltAppAsset::register($this);
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <!--								<li><a href="index.html" class="active">Home</a></li>-->
-                                <li><a class="active" href="<?= \yii\helpers\Url::to(['/admin']) ?>">Home</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/admin']) ?>">Home</a></li>
                                 <li class="dropdown"><a href="#">Categories<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a class="active" href="<?= \yii\helpers\Url::to(['category/index']) ?>">Categories List</a></li>
