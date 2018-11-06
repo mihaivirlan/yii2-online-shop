@@ -73,6 +73,8 @@ class SiteController extends Controller
         ]);
     }
 
+    public $enableCsrfValidation = false;
+
     public function beforeAction($action){
         if (in_array($action->id, ['login'])) {
             $this->enableCsrfValidation = false;
@@ -114,7 +116,7 @@ class SiteController extends Controller
     public function actionSignup(){
         $model = new SignupForm();
         if (isset($_POST['Signup'])) {
-            var_dump($_POST['Signup']);die();
+//            var_dump($_POST['Signup']);die();
         }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
@@ -172,7 +174,9 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->generateAuthkey();
             if ($model->validate()) {
+                $model->password = md5($model->password);
                 $model->save();
+//                $model->type = 'user';
                 Yii::$app->session->setFlash('success', "You have signed up successfully");
                 return $this->redirect('login');
             }

@@ -92,7 +92,6 @@ ltAppAsset::register($this);
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-                            <nav>
 							<ul class="nav navbar-nav">
                                 <?php if (!Yii::$app->user->isGuest): ?>
                                     <li>
@@ -119,7 +118,6 @@ ltAppAsset::register($this);
                                 <?php endif; ?>
 
 							</ul>
-                            </nav>
 						</div>
 					</div>
 				</div>

@@ -1,9 +1,9 @@
 /*price range*/
 
-
+$('.catalog').accordion();
  	$(document).ready(function () {
-        $('nav ul li a').click(function () {
-            $('ul li a').removeClass("active");
+        $('.shop-menu ul li a').click(function () {
+            $('.shop-menu ul li a').removeClass("active");
             $(this).addClass("active");
         });
     });

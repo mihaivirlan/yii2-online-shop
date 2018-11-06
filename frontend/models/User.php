@@ -13,7 +13,7 @@ class User extends ActiveRecord implements IdentityInterface{
     public function rules(){
         return [
 
-            [['username', 'password',], 'required'],
+            [['username', 'password'], 'required'],
 
             ['username', 'unique', 'targetClass' => '\frontend\models\User', 'message' => 'This username has already been taken'],
 
@@ -46,16 +46,16 @@ class User extends ActiveRecord implements IdentityInterface{
 
     public function validatePassword($password)
     {
-        return $this->password === Yii::$app->security->generatePasswordHash ($password);
+        return $this->password === md5 ($password);
     }
 
     public function generateAuthKey() {
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
-    public function setPassword($password){
-        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
-
-    }
+//    public function setPassword($password){
+//        $this->password = Yii::$app->security->generatePasswordHash($password);
+//
+//    }
 
 }

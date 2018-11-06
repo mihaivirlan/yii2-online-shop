@@ -2,9 +2,10 @@
 namespace frontend\models;
 
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
 
-class SignupForm extends Model
+class SignupForm extends ActiveRecord
 {
     public $username;
 //    public $email;
@@ -44,7 +45,7 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
 //        $user->email = $this->email;
-        $user->setPassword($this->password);
+        $user->password = md5($this->password);
         $user->generateAuthKey();
 
         return $user->save() ? $user : null;

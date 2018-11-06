@@ -2,12 +2,14 @@
 namespace frontend\models;
 use Yii;
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
 
-class LoginForm extends Model{
+class LoginForm extends ActiveRecord {
 
     public $username;
     public $password;
+    public $type;
     public $rememberMe = true;
     private $_user = false;
 
