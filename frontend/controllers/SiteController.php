@@ -176,7 +176,6 @@ class SiteController extends Controller
             if ($model->validate()) {
                 $model->password = md5($model->password);
                 $model->save();
-//                $model->type = 'user';
                 Yii::$app->session->setFlash('success', "You have signed up successfully");
                 return $this->redirect('login');
             }

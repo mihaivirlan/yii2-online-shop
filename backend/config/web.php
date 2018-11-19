@@ -8,6 +8,7 @@
 //});
 
 $params = require __DIR__ . '/params.php';
+$db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
@@ -50,16 +51,14 @@ $config = [
                 ],
             ],
         ],
-        'db' => require (__DIR__ . '/db.php'),
-        'cart' => [
-            'class' => 'app\components\ShoppingCart',
-            'sessionKey' => 'promary-cart',
-        ],
+        'db' => $db,
 
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<action:\w+>' => 'category/view/<action>',
+                'category/<id:\d+>' => 'category/view'
             ],
         ],
 

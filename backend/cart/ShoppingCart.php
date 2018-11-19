@@ -1,10 +1,8 @@
 <?php
-
 namespace app\cart;
 use app\cart\storage\StorageInterface;
 
 class ShoppingCart{
-
     private $storage;
     private $_items = [];
 

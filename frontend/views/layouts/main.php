@@ -97,7 +97,9 @@ ltAppAsset::register($this);
                                     <li>
                                         <a href="<?= Url::to(['/site/logout']) ?>">
                                             <i class="fa fa-user"></i><?= Yii::$app->user->identity['username'] ?>(Logout)
-                                    <li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                            <li><a href="<?= Url::to(['site/contact']) ?>"><i class="fa fa-envelope"></i>Contact</a></li>
+<!--                                    <li><a href="--><?//= Url::to(['/admin']) ?><!--"><i class="fa fa-dashboard"></i> Dashboard</a></li>-->
                                         </a>
                                     </li>
                                 <?php endif; ?>

@@ -17,7 +17,7 @@ return [
     'admin' => [
         'class' => 'frontend\modules\admin\Module',
         'layout' => 'admin',
-        'defaultRoute' => 'order/index',
+        'defaultRoute' => 'category/index',
     ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',

@@ -1,0 +1,7 @@
+{
+  "mihaildev/yii2-ckeditor": "*",
+  "require": {
+    "mihaildev/yii2-ckeditor": "*",
+    "costa-rico/yii2-images": "dev-master"
+  }
+}

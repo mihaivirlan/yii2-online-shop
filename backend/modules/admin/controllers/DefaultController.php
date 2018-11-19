@@ -1,14 +1,11 @@
 <?php
 
-namespace backend\modules\admin\controllers;
-
-use yii\web\Controller;
+namespace frontend\modules\admin\controllers;
 
 /**
  * Default controller for the `admin` module
  */
-class DefaultController extends Controller
-{
+class DefaultController extends AppAdminController {
     /**
      * Renders the index view for the module
      * @return string

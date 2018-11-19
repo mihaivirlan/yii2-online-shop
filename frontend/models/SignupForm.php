@@ -8,7 +8,6 @@ use yii\db\ActiveRecord;
 class SignupForm extends ActiveRecord
 {
     public $username;
-//    public $email;
     public $password;
 
 
@@ -44,7 +43,6 @@ class SignupForm extends ActiveRecord
 
         $user = new User();
         $user->username = $this->username;
-//        $user->email = $this->email;
         $user->password = md5($this->password);
         $user->generateAuthKey();
 
