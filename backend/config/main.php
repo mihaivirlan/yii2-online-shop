@@ -12,7 +12,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'en-EN',
-    'defaultRoute' => 'site/login',
+    'defaultRoute' => 'category/index',
     'modules' => [
     'admin' => [
         'class' => 'backend\modules\admin\Module',

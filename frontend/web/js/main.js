@@ -1,6 +1,5 @@
 /*price range*/
 
-$('.catalog').accordion();
  	$(document).ready(function () {
         $('.shop-menu ul li a').click(function () {
             $('.shop-menu ul li a').removeClass("active");

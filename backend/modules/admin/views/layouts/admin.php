@@ -68,7 +68,7 @@ ltAppAsset::register($this);
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="<?= \yii\helpers\Url::home() ?>"><?= Html::img('@web/images/home/logo.png', ['alt']) ?></a>
+                            <a href="<?= \yii\helpers\Url::to(['/category/index']) ?>"><?= Html::img('@web/images/home/logo.png', ['alt']) ?></a>
                         </div>
 
                         <div class="btn-group pull-right">
@@ -100,11 +100,20 @@ ltAppAsset::register($this);
                             <ul class="nav navbar-nav">
                                 <?php if (!Yii::$app->user->isGuest): ?>
                                     <li>
-                                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>">
-                                            <i class="fa fa-user"></i><?= Yii::$app->user->identity['username'] ?>(Logout)
+                                        <a href="<?= \yii\helpers\Url::to(['/category/index']) ?>">
+                                            <i class="fa fa-user"></i><?= Yii::$app->user->identity['username'] ?>
                                         </a>
                                     </li>
                                 <?php endif; ?>
+
+                                <?php if (!Yii::$app->user->isGuest): ?>
+                                    <li>
+                                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>">
+                                            <i class="fa fa-sign-out">(Logout)</i>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
 <!--                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>-->
                                 <li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                             </ul>
@@ -129,7 +138,7 @@ ltAppAsset::register($this);
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <!--								<li><a href="index.html" class="active">Home</a></li>-->
-                                <li><a href="<?= \yii\helpers\Url::to(['/admin']) ?>">Home</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/category/index']) ?>">Home</a></li>
                                 <li class="dropdown"><a href="#">Categories<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a class="active" href="<?= \yii\helpers\Url::to(['category/index']) ?>">Categories List</a></li>

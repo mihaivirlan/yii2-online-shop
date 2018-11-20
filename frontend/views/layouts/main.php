@@ -95,11 +95,15 @@ ltAppAsset::register($this);
 							<ul class="nav navbar-nav">
                                 <?php if (!Yii::$app->user->isGuest): ?>
                                     <li>
-                                        <a href="<?= Url::to(['/site/logout']) ?>">
-                                            <i class="fa fa-user"></i><?= Yii::$app->user->identity['username'] ?>(Logout)
+                                        <a href="<?= Url::to(['/category/index']) ?>">
+                                            <i class="fa fa-user"></i><?= Yii::$app->user->identity['username'] ?>
+                                        <li>
+                                            <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>">
+                                                <i class="fa fa-sign-out">(Logout)</i>
+                                            </a>
+                                        </li>
                                             <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                             <li><a href="<?= Url::to(['site/contact']) ?>"><i class="fa fa-envelope"></i>Contact</a></li>
-<!--                                    <li><a href="--><?//= Url::to(['/admin']) ?><!--"><i class="fa fa-dashboard"></i> Dashboard</a></li>-->
                                         </a>
                                     </li>
                                 <?php endif; ?>

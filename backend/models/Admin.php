@@ -5,8 +5,6 @@ use yii\web\IdentityInterface;
 use Yii;
 
 class Admin extends ActiveRecord implements IdentityInterface{
-    const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
 
     public static function tableName(){
         return 'admin';
