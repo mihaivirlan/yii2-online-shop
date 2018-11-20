@@ -1,9 +1,9 @@
 <?php
 
-namespace frontend\modules\admin\controllers;
+namespace backend\modules\admin\controllers;
 
 use Yii;
-use frontend\modules\admin\models\Category;
+use backend\modules\admin\models\Category;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

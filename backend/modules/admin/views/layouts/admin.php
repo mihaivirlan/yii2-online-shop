@@ -7,9 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
+use backend\assets\AppAsset;
 use common\widgets\Alert;
-use frontend\assets\ltAppAsset;
+use backend\assets\ltAppAsset;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
 

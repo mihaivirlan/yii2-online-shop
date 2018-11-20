@@ -11,7 +11,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'frontend\modules\admin\controllers';
+    public $controllerNamespace = 'backend\modules\admin\controllers';
 
     /**
      * {@inheritdoc}

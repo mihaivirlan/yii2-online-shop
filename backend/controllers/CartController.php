@@ -7,10 +7,10 @@
  */
 
 namespace backend\controllers;
-use frontend\models\Product;
-use frontend\models\Cart;
-use frontend\models\Order;
-use frontend\models\OrderItems;
+use backend\models\Product;
+use backend\models\Cart;
+use backend\models\Order;
+use backend\models\OrderItems;
 use Yii;
 
 

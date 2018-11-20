@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\modules\admin\controllers;
+namespace backend\modules\admin\controllers;
 
 /**
  * Default controller for the `admin` module

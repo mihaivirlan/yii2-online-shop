@@ -112,7 +112,7 @@ ltAppAsset::register($this);
                                     <li><a href="<?= Url::to(['site/register']) ?>"><i class="fa fa-sign-in"></i> Signin</a></li>
                                 <?php endif; ?>
                                 <?php if (Yii::$app->user->isGuest): ?>
-                                    <li><a href="<?= Url::to(['/admin']) ?>"><i class="fa fa-lock"></i>Login</a></li>
+                                    <li><a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-lock"></i>Login</a></li>
                                 <?php endif; ?>
 
                                 <?php if (Yii::$app->user->isGuest): ?>

@@ -1,10 +1,9 @@
 <?php
 
-namespace frontend\modules\admin\controllers;
+namespace backend\modules\admin\controllers;
 
 use Yii;
-use frontend\modules\admin\models\Order;
-use frontend\modules\admin\models\OrderItems;
+use backend\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

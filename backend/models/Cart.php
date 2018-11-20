@@ -6,7 +6,7 @@
  * Time: 7:48 AM
  */
 
-namespace frontend\models;
+namespace backend\models;
 use yii\db\ActiveRecord;
 
 class Cart extends ActiveRecord {
