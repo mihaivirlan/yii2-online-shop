@@ -33,7 +33,7 @@ Url::base('');
                     <div class="col-sm-5">
                         <div class="view-product">
 <!--                            --><?//= Html::img($mainImg->getUrl(), ['alt' => $product->name])?>
-                            <img src="data:image/jpeg;base64,<?= base64_encode($mainImg->getUrl()) ?>" />
+                            <img src="data:image/jpeg;base64,<?= base64_encode($product->img) ?>" />
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -46,7 +46,7 @@ Url::base('');
                                         <div class="item <?php if ($i == 0) echo ' active'?>">
                                     <?php endif; ?>
 
-                                            <a href=""><img src="data:image/jpeg;base64,<?= base64_encode($img->getUrl('84x85')) ?>" /></a>
+                                            <a href=""> <img src="data:image/jpeg;base64,<?= base64_encode($product->img) ?>" /></a>
 
                                     <?php $i++; if ($i % 3 == 0 || $i == $count):?>
                                         </div>
@@ -68,13 +68,13 @@ Url::base('');
                     <div class="col-sm-7">
                         <div class="product-information"><!--/product-information-->
                             <?php if ($product->new): ?>
-                                <?= Html::img("@web/images/home/new.png", ['alt' => 'New', 'class' => 'new'])?>
-<!--                                <img src="data:image/jpeg;base64,--><?//= base64_encode($product->img) ?><!--" />-->
+<!--                                --><?//= Html::img("@web/images/home/new.png", ['alt' => 'New', 'class' => 'new'])?>
+                                <img src="data:image/jpeg;base64,<?= base64_encode($product->img) ?>" />
                             <?php endif; ?>
 
                             <?php if ($product->sale): ?>
                                 <?= Html::img("@web/images/home/sale.png", ['alt' => 'Sale', 'class' => 'new'])?>
-<!--                                <img src="data:image/jpeg;base64,--><?//= base64_encode($product->img) ?><!--" />-->
+                                <img src="data:image/jpeg;base64,<?= base64_encode($product->img) ?>" />
                             <?php endif; ?>
                             <h2><?= $product->name ?></h2>
                             <p>Web ID: 1089772</p>
